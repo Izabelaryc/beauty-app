@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Test() {
   const [formData, setFormData] = React.useState({
@@ -6,6 +7,7 @@ export default function Test() {
     eyes: "",
     tan: "",
   });
+  const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -17,9 +19,18 @@ export default function Test() {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (formData.skin === "cool") {
+      navigate("/season/3");
+      return;
+    }
+    navigate("/season/2");
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="skin">What is your skin undertone?</label>
         <br />
 
@@ -37,7 +48,7 @@ export default function Test() {
         <input
           type="radio"
           id="warm"
-          name="employment"
+          name="skin"
           value="warm"
           checked={formData.skin === "warm"}
           onChange={handleChange}
@@ -98,6 +109,7 @@ export default function Test() {
         />
         <label htmlFor="red">My skins turns red at first</label>
         <br />
+        <button>Submit</button>
       </form>
     </div>
   );

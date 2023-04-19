@@ -6,7 +6,7 @@
     "react-router-dom": "^6.10.0"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html public/images/*"
   },
   "devDependencies": {
     "process": "^0.11.10"
