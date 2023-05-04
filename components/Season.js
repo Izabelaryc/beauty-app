@@ -10,13 +10,17 @@ export default function Season(props) {
   });
 
   return (
-    <div>
-      <img src={season.img} />
-      <h1>{season.season}</h1>
-      <p>{season.description}</p>
-      <img src={season.colorPalette} />
-      <p>Celebrities: {season.celebs}</p>
-      <Link to="/">Back</Link>
+    <div className="season">
+      <img src={season.img} className="season-img" />
+      <h1 className="title">{season.season}</h1>
+      <p className="text">{season.description}</p>
+      <img src={season.colorPalette} className="color-palette" />
+      <p className="text">
+        <strong>Celebrities:</strong> {season.celebs}
+      </p>
+      <Link className="season-link" to="/">
+        Back
+      </Link>
     </div>
   );
 }

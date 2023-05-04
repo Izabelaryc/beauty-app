@@ -1,16 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import { questions } from "./questions";
 
 export default function Test() {
   const [formData, setFormData] = React.useState({
     skin: "",
     eyes: "",
-    tan: "",
+    hair: "",
   });
   const navigate = useNavigate();
 
   function handleChange(event) {
-    const { name, value, type, checked } = event.target;
+    const { name, value } = event.target;
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
@@ -21,94 +22,67 @@ export default function Test() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (formData.skin === "cool") {
+    console.log(formData);
+    const answers = [];
+    answers.push(formData.skin, formData.eyes, formData.hair);
+    const spring = answers.filter((answers) => answers === "spring").length;
+    const summer = answers.filter((answers) => answers === "summer").length;
+    const autumn = answers.filter((answers) => answers === "autumn").length;
+    const winter = answers.filter((answers) => answers === "winter").length;
+    if (spring > 1) {
+      navigate("/season/1");
+    } else if (summer > 1) {
+      navigate("/season/2");
+    } else if (autumn > 1) {
       navigate("/season/3");
-      return;
+    } else if (winter > 1) {
+      navigate("/season/4");
+    } else {
+      if (formData.skin === "spring") {
+        navigate("/season/1");
+      } else if (formData.skin === "summer") {
+        navigate("/season/2");
+      } else if (formData.skin === "autumn") {
+        navigate("/season/3");
+      } else if (formData.skin === "winter") {
+        navigate("/season/4");
+      }
     }
-    navigate("/season/2");
   }
 
   return (
-    <div>
+    <div className="test">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="skin">What is your skin undertone?</label>
-        <br />
-
-        <input
-          type="radio"
-          id="cool"
-          name="skin"
-          value="cool"
-          checked={formData.skin === "cool"}
-          onChange={handleChange}
-        />
-        <label htmlFor="cool">Cool undertones</label>
-        <br />
-
-        <input
-          type="radio"
-          id="warm"
-          name="skin"
-          value="warm"
-          checked={formData.skin === "warm"}
-          onChange={handleChange}
-        />
-        <label htmlFor="warm">warm undertones</label>
-        <br />
-
-        <label htmlFor="eyes">What is the color of your eyes?</label>
-        <br />
-
-        <input
-          type="radio"
-          id="intense"
-          name="eyes"
-          value="intense"
-          checked={formData.eyes === "intense"}
-          onChange={handleChange}
-        />
-        <label htmlFor="intense">
-          Intense: dark brown/black, cool intensive blue
-        </label>
-        <br />
-
-        <input
-          type="radio"
-          id="calm"
-          name="eyes"
-          value="calm"
-          checked={formData.eyes === "calm"}
-          onChange={handleChange}
-        />
-        <label htmlFor="calm">
-          Harmonious, moderate, hazel, gray or multicolor
-        </label>
-        <br />
-
-        <label htmlFor="tan">Do you get tanned easily?</label>
-        <br />
-
-        <input
-          type="radio"
-          id="brown"
-          name="tan"
-          value="brown"
-          checked={formData.tan === "brown"}
-          onChange={handleChange}
-        />
-        <label htmlFor="brown">My skin gets brown easily, no reds</label>
-        <br />
-
-        <input
-          type="radio"
-          id="red"
-          name="tan"
-          value="red"
-          checked={formData.tan === "red"}
-          onChange={handleChange}
-        />
-        <label htmlFor="red">My skins turns red at first</label>
-        <br />
+        {questions.map((question) => {
+          return (
+            <Fragment key={question.id}>
+              <label className="test-question" htmlFor={questions.id}>
+                {question.content}
+              </label>
+              <br />
+              {question.answers.map((answer) => {
+                return (
+                  <Fragment key={answer.id}>
+                    <input
+                      type="radio"
+                      id={answer.id}
+                      name={question.id}
+                      value={answer.id}
+                      checked={formData[question.id] === answer.id}
+                      onChange={handleChange}
+                    />
+                    <label htmlFor={answer.id}>
+                      {answer.id}
+                      {answer.content}
+                    </label>
+                    <br />
+                  </Fragment>
+                );
+              })}
+              <br />
+            </Fragment>
+          );
+        })}
         <button>Submit</button>
       </form>
     </div>

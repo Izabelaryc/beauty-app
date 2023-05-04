@@ -1,0 +1,101 @@
+.season {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-palette {
+    width: 25%;
+}
+
+.season-img {
+    width: 280;
+}
+
+.season-title {
+    margin-bottom: 0;
+}
+
+.text {
+    font-size: 1.2em;
+    color: #43424b;
+    width: 70vw;
+    text-align: center;
+}
+
+.season-link {
+    color: #7772b5;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: 'Parisienne', cursive;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.title {
+    font-family: 'Parisienne', cursive;
+    font-size: 70px;
+    margin: 0;
+    color: #7772b5;
+}
+
+.homepage-img02 {
+    width: 60px;
+}
+
+
+.homepage-link {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 2em;
+    background-color: #aaa6eb;
+    padding: 20px;
+    border-radius: 24px;
+    color: white;
+}
+
+.homepage-text {
+    color: #7772b5;
+    font-size: 2em;
+}
+
+form {
+    margin-left: 20%;
+    margin-top: 70px;
+}
+
+.test-question {
+    font-size: 1.2em;
+    color: #ca74a1;
+    font-weight: bold;
+}
+
+.test {
+    height: 100vh;
+    background-image: url("/public/images/flower.jpg");
+    background-position: bottom 30px right 10px;
+    background-repeat: no-repeat;
+    background-size: 25%;
+}
+
+form > label {
+    color: #43424b;
+}
+
+button {
+    background-color: #f892b7;
+    border: none;
+    color: white;
+    width: 80px;
+    height: 30px;
+    border-radius: 13px;
+    font-size: 1em;
+}
