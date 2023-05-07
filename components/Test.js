@@ -72,7 +72,13 @@ export default function Test() {
             </Fragment>
           );
         })}
-        <button disabled={false}>Submit</button>
+        <button
+          disabled={
+            formData.skin && formData.eyes && formData.hair ? false : true
+          }
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
