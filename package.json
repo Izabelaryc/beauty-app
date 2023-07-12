@@ -8,9 +8,9 @@
   "scripts": {
     "start": "parcel index.html public/images/*",
     "prebuild-dev": "shx rm -rf dist/*",
-    "build-dev": "parcel build ./index.html --no-optimize --public-url ./",
+    "build-dev": "parcel build ./index.html public/images/* --no-optimize --public-url ./",
     "prebuild": "shx rm -rf dist/*",
-    "build": "parcel build ./index.html --public-url ./",
+    "build": "parcel build ./index.html public/images/* --public-url ./",
     "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "devDependencies": {
