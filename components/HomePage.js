@@ -9,7 +9,10 @@ export default function HomePage() {
       <Link className="homepage-link" to="/test">
         Start the test!
       </Link>
-      <img className="homepage-img02" src="/public/images/butterfly02.jpg" />
+      <img
+        className="homepage-img02"
+        src={`${process.env.PUBLIC_URL}/public/images/butterfly02.jpg`}
+      />
     </div>
   );
 }

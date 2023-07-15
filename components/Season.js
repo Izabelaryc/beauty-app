@@ -11,10 +11,16 @@ export default function Season(props) {
 
   return (
     <div className="season">
-      <img src={season.img} className="season-img" />
+      <img
+        src={`${process.env.process.env.PUBLIC_URL}${season.img}`}
+        className="season-img"
+      />
       <h1 className="title">{season.season}</h1>
       <p className="text">{season.description}</p>
-      <img src={season.colorPalette} className="color-palette" />
+      <img
+        src={`${process.env.process.env.PUBLIC_URL}${season.colorPalette}`}
+        className="color-palette"
+      />
       <p className="text">
         <strong>Celebrities:</strong> {season.celebs}
       </p>
