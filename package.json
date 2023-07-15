@@ -6,14 +6,14 @@
     "react-router-dom": "^6.10.0"
   },
   "scripts": {
-    "start": "parcel index.html public/images/*",
-    "prebuild-dev": "shx rm -rf dist/*",
-    "build-dev": "parcel build ./index.html public/images/* --no-optimize --public-url ./",
+    "start": "cross-var \"dotenv -e .env.local parcel index.html public/images/* --public-url $PUBLIC_URL\"",
     "prebuild": "shx rm -rf dist/*",
-    "build": "env-cmd -x parcel build ./index.html public/images/* --public-url \\$PUBLIC_URL",
+    "build": "cross-var \"dotenv -e .env parcel build ./index.html public/images/* --public-url $PUBLIC_URL\"",
     "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "devDependencies": {
+    "cross-var": "^1.1.0",
+    "dotenv-cli": "^7.2.1",
     "env-cmd": "^10.1.0",
     "process": "^0.11.10",
     "shx": "^0.3.2"

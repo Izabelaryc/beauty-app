@@ -12,13 +12,13 @@ export default function Season(props) {
   return (
     <div className="season">
       <img
-        src={`${process.env.process.env.PUBLIC_URL}${season.img}`}
+        src={`${process.env.PUBLIC_URL}${season.img}`}
         className="season-img"
       />
       <h1 className="title">{season.season}</h1>
       <p className="text">{season.description}</p>
       <img
-        src={`${process.env.process.env.PUBLIC_URL}${season.colorPalette}`}
+        src={`${process.env.PUBLIC_URL}${season.colorPalette}`}
         className="color-palette"
       />
       <p className="text">

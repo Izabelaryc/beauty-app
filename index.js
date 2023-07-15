@@ -27,10 +27,14 @@ const router = createHashRouter(
     },
   ],
   {
-    basename: process.env.PUBLIC_URL,
+    basename:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUBLIC_URL
+        : undefined,
   }
 );
 
+console.log(process.env.PUBLIC_URL);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={router} />);
-console.log(root);
