@@ -1,21 +1,27 @@
 {
+  "name": "beauty-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "parcel": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
-  },
-  "scripts": {
-    "start": "cross-var \"dotenv -e .env.local parcel index.html public/images/* --public-url $PUBLIC_URL\"",
-    "prebuild": "shx rm -rf dist/*",
-    "build": "cross-var \"dotenv -e .env parcel build ./index.html public/images/* --public-url $PUBLIC_URL\"",
-    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    "react-router-dom": "^6.14.1"
   },
   "devDependencies": {
-    "cross-var": "^1.1.0",
-    "dotenv-cli": "^7.2.1",
-    "env-cmd": "^10.1.0",
-    "process": "^0.11.10",
-    "shx": "^0.3.2"
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "vite": "^4.4.0"
   }
 }

@@ -1,8 +1,8 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
-import data from "../data";
+import data from "../data/seasons";
+import { getPublicAssetUrl } from "../utils/get-public-image-src";
 
-export default function Season(props) {
+export default function Season() {
   let { id } = useParams();
 
   const season = data.find((item) => {
@@ -11,14 +11,11 @@ export default function Season(props) {
 
   return (
     <div className="season">
-      <img
-        src={`${process.env.PUBLIC_URL}${season.img}`}
-        className="season-img"
-      />
+      <img src={getPublicAssetUrl(season.img)} className="season-img" />
       <h1 className="title">{season.season}</h1>
       <p className="text">{season.description}</p>
       <img
-        src={`${process.env.PUBLIC_URL}${season.colorPalette}`}
+        src={getPublicAssetUrl(season.colorPalette)}
         className="color-palette"
       />
       <p className="text">

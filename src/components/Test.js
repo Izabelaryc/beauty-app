@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions } from "./questions";
+import { questions } from "../data/questions";
 const seasonsMap = {
   spring: 1,
   summer: 2,

@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { getPublicAssetUrl } from "../utils/get-public-image-src";
 
 export default function HomePage() {
   return (
@@ -11,7 +11,7 @@ export default function HomePage() {
       </Link>
       <img
         className="homepage-img02"
-        src={`${process.env.PUBLIC_URL}/public/images/butterfly02.jpg`}
+        src={getPublicAssetUrl("images/butterfly02.jpg")}
       />
     </div>
   );
